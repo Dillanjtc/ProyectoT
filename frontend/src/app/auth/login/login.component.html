@@ -1,0 +1,186 @@
+<p-toast position="center"></p-toast>
+
+<div
+  class="flex justify-content-center align-items-center min-h-screen min-w-screen bg-[#1a1a1a] overflow-hidden"
+>
+  <div class="flex flex-column align-items-center justify-content-center">
+    <div
+      style="
+        margin-top: 5rem;
+        border-radius: 2.5rem;
+        padding: 0.5rem;
+        background: linear-gradient(
+          180deg,
+          #b30000 10%,
+          rgba(0, 0, 0, 0.1) 40%
+        );
+        box-shadow: 0 15px 45px rgba(179, 0, 0, 0.3);
+      "
+    >
+      <div
+        class="w-full py-10 px-6 sm:px-10"
+        style="border-radius: 2rem; background-color: #121212;"
+      >
+        <!-- LOGO -->
+        <div class="text-center mb-6" style="margin-top: 1rem">
+          <div
+            style="
+              background: linear-gradient(135deg, #b30000 20%, #330000 80%);
+              padding: 1rem 2rem;
+              display: inline-block;
+              border-radius: 1.5rem;
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            "
+          >
+            <img
+              src="https://img.freepik.com/vector-premium/neo-tribal-y2k-tatuaje-estilo-gotico-diseno-corazon-sigilismo-cibernetico-ilustracion-vectorial-contorno_216166-1401.jpg"
+              alt="DT Logo"
+              style="
+                max-height: 70px;
+                filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+              "
+            />
+          </div>
+        </div>
+
+        <!-- Encabezado -->
+        <div class="text-center mb-5">
+          <div
+            style="
+              font-size: 2.5rem;
+              font-weight: bold;
+              color: #b30000;
+              text-shadow: 1px 1px 2px #000000;
+              font-family: 'Segoe UI', sans-serif;
+            "
+          >
+            🔐 Bienvenido!!!
+          </div>
+          <div style="color: #ff4d4d; font-weight: 600; font-size: 1.2rem">
+            Inicia sesión
+          </div>
+        </div>
+
+        <!-- Formulario -->
+        <div [formGroup]="loginForm">
+          <!-- Email -->
+          <label
+            for="email1"
+            class="block text-xl font-semibold mb-5 mt-2"
+            style="color: #b30000"
+            >Correo electrónico</label
+          >
+          <input
+            id="email1"
+            type="text"
+            placeholder="ejemplo@email.com"
+            formControlName="email"
+            pInputText
+            class="w-full md:w-30rem mb-2"
+            style="
+              padding: 1rem;
+              border-radius: 1rem;
+              border: 1px solid #440000;
+              background-color: #2a2a2a;
+              color: #fff;
+            "
+          />
+          <p>
+            <small
+              *ngIf="
+                loginForm.get('email')?.invalid &&
+                (loginForm.get('email')?.touched ||
+                  loginForm.get('email')?.dirty)
+              "
+              class="p-error"
+              style="color: #ff4d4d"
+            >
+              El correo debe contener un &#64;
+            </small>
+          </p>
+
+          <!-- Contraseña -->
+          <label
+            for="password1"
+            class="block font-semibold text-xl mb-2 mt-4"
+            style="color: #b30000"
+            >Contraseña</label
+          >
+          <p-password
+            id="password1"
+            placeholder="Contraseña"
+            formControlName="password"
+            styleClass="mb-2"
+            inputStyleClass="w-full p-3 md:w-30rem"
+            [feedback]="false"
+            [style]="{
+              'background-color': '#b30000',
+              color: 'white',
+              'border-radius': '1rem',
+              border: '1px solid #660000'
+            }"
+          ></p-password>
+          <p>
+            <small
+              *ngIf="
+                loginForm.get('password')?.touched &&
+                loginForm.get('password')?.value &&
+                !validPassword(loginForm.get('password')?.value || '')
+              "
+              class="p-error"
+              style="color: #ff4d4d"
+            >
+              La contraseña debe tener mínimo 6 caracteres y al menos un
+              carácter especial.
+            </small>
+          </p>
+
+          <!-- Enlace olvidaste tu contraseña -->
+          <div class="flex justify-content-end mb-4 mt-4">
+            <a
+              class="font-medium no-underline text-right cursor-pointer"
+              style="color: #b30000; font-size: 1rem"
+              [routerLink]="['/auth/forgot-password']"
+            >
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+
+          <!-- Botón ingresar -->
+          <button
+            pButton
+            pRipple
+            label="Ingresar"
+            class="w-full p-3 text-xl mt-2"
+            (click)="funIngresar()"
+            style="
+              background-color: #b30000;
+              border: none;
+              color: white;
+              border-radius: 0.8rem;
+              font-weight: bold;
+              box-shadow: 0 0 10px #ff1a1a;
+            "
+          ></button>
+
+          <!-- Botón registrarse -->
+          <button
+            pButton
+            pRipple
+            label="¿No tienes cuenta? Regístrate"
+            class="w-full p-3 text-xl mt-3"
+            [routerLink]="['/auth/register']"
+            style="
+              background-color: #330000;
+              border: none;
+              color: white;
+              border-radius: 0.8rem;
+              font-weight: bold;
+              box-shadow: 0 0 10px #660000;
+            "
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

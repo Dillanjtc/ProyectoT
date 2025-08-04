@@ -1,0 +1,63 @@
+.dark-form-theme {
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 2rem;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+
+  .titulo {
+    font-size: 1.75rem;
+    color: #38bdf8;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px #000;
+  }
+
+  label {
+    color: #93c5fd;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  input,
+  textarea {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+    border: 1px solid #334155 !important;
+    border-radius: 5px;
+  }
+
+  p-dialog {
+    background-color: #1e293b;
+    color: #f8fafc;
+
+    .p-dialog-header {
+      background-color: #0f172a;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+  }
+
+  .submit-btn {
+    background-color: #10b981;
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .submit-btn:hover {
+    background-color: #059669;
+  }
+
+  p-button {
+    button {
+      background-color: #6366f1 !important;
+      color: white !important;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #4f46e5 !important;
+    }
+  }
+}

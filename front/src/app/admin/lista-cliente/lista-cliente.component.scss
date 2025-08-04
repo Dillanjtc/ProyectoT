@@ -1,0 +1,111 @@
+:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #cbd5e1;
+  background-color: #0f172a;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.titulo-tabla {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #93c5fd;
+  user-select: none;
+}
+
+.tabla-clientes {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  background-color: transparent;
+  border-radius: 8px;
+  overflow: hidden;
+
+  thead tr {
+    background-color: #1e293b;
+  }
+
+  thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #60a5fa;
+  }
+
+  tbody tr {
+    background-color: #111827;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #1e293b;
+    }
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    vertical-align: middle;
+  }
+
+  tbody td input[pinputtext] {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+    color: #cbd5e1 !important;
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    width: 100%;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: #60a5fa !important;
+      outline: none !important;
+      box-shadow: 0 0 6px #60a5fa;
+    }
+  }
+}
+
+/* Botones redondeados con colores */
+.p-button-rounded {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: none;
+}
+
+.p-button-info {
+  background-color: #2563eb;
+  border: none;
+  color: #f0f9ff;
+
+  &:hover {
+    background-color: #3b82f6;
+    box-shadow: 0 0 8px #3b82f6;
+  }
+}
+
+.p-button-success {
+  background-color: #22c55e;
+  border: none;
+  color: #f0fdf4;
+
+  &:hover {
+    background-color: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+  }
+}
+
+.p-button-danger {
+  background-color: #dc2626;
+  border: none;
+  color: #fee2e2;
+
+  &:hover {
+    background-color: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+  }
+}

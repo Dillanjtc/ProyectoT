@@ -1,0 +1,58 @@
+<div class="card dark-form-theme">
+  <h2 class="titulo">👋 Bienvenido, ¿cómo podemos asistirte?</h2>
+
+  <form [formGroup]="clienteForm" (ngSubmit)="guardar()">
+    <div class="p-fluid p-formgrid p-grid">
+
+      <div class="p-field p-col-12">
+        <label for="nombre">🆔 Cédula</label>
+        <input id="nombre" type="text" pInputText formControlName="nombre" />
+      </div>
+
+      <div class="p-field p-col-12 p-md-6">
+        <label for="correo">📧 Correo Electrónico</label>
+        <input id="correo" type="email" pInputText formControlName="correo" />
+      </div>
+
+      <div class="p-field p-col-12 p-md-6">
+        <label for="telefono">📱 Teléfono</label>
+        <input id="telefono" type="text" pInputText formControlName="telefono" />
+      </div>
+
+      <div class="card flex justify-center">
+        <p-button (click)="showDialog()" label="📌 Ubicación y Problema" />
+        <p-dialog header="🛠️ Detalles del Problema" [modal]="true" [(visible)]="visible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+          
+          <div class="p-field p-col-12">
+            <label for="codigoPostal">📮 Código Postal</label>
+            <input id="codigoPostal" type="text" pInputText formControlName="codigoPostal" />
+          </div>
+          <div class="p-field p-col-12">
+            <label for="provincia">🏞️ Provincia</label>
+            <input id="provincia" type="text" pInputText formControlName="provincia" />
+          </div>
+          <div class="p-field p-col-12">
+            <label for="ciudad">🏙️ Ciudad</label>
+            <input id="ciudad" type="text" pInputText formControlName="ciudad" />
+          </div>
+          <div class="p-field p-col-12">
+            <label for="callePrincipal">🚦 Calle Principal</label>
+            <input id="callePrincipal" type="text" pInputText formControlName="callePrincipal" />
+          </div>
+          <div class="p-field p-col-12">
+            <label for="calleSecundaria">🛣️ Calle Secundaria</label>
+            <input id="calleSecundaria" type="text" pInputText formControlName="calleSecundaria" />
+          </div>
+          <div class="p-field p-col-12">
+            <label for="descripcion">💥 Descripción del Problema</label>
+            <textarea id="descripcion" pInputTextarea rows="4" formControlName="descripcion"></textarea>
+          </div>
+        </p-dialog>
+      </div>
+
+      <div class="p-field p-col-12">
+        <button pButton type="submit" label="💾 Guardar" class="submit-btn"></button>
+      </div>
+    </div>
+  </form>
+</div>

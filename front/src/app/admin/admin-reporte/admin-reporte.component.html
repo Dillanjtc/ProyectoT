@@ -1,0 +1,47 @@
+<div class="dashboard dark-report-theme">
+  <main class="main">
+    <h2>📄 Informe </h2>
+
+    <section class="form-box p-4 border-round surface-card shadow-2">
+      <h3 class="section-title"> Comics</h3>
+      <input pInputText type="text" [(ngModel)]="nombre" placeholder="Nombre de la Agencia..." class="w-full mb-3" />
+
+      <label class="block mb-2 font-semibold">📍 Estado Actual</label>
+      <input pInputText type="text" [(ngModel)]="estado" placeholder="Ej: Finalizado, En Proceso..." class="w-full mb-3" />
+
+      <div class="col-6 mb-3">
+        <label class="font-medium">⏱️ fecha </label>
+        <input type="time" pInputText [(ngModel)]="horapubl" class="w-full" />
+      </div>
+
+      <label class="block mb-2 font-semibold">📝 Descripción de Actividad</label>
+      <textarea pInputTextarea [(ngModel)]="descripcion" rows="3" class="w-full mb-4"></textarea>
+
+      <label class="block mb-2 font-semibold">🔧 </label>
+      <p-table [value]="materialesUsados" class="mb-4" [tableStyle]="{ 'min-width': '100%' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-m>
+          <tr>
+            <td>{{ m.nombre }}</td>
+            <td>{{ m.cantidad }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+      <label class="block mb-2 font-semibold">📌 Recomendaciones Finales</label>
+      <textarea pInputTextarea [(ngModel)]="recomendacion" rows="3" class="w-full mb-4"></textarea>
+
+      <div class="flex gap-3">
+        <button pButton label="Guardar" icon="pi pi-save" (click)="guardar()" class="save-btn"></button>
+        <button pButton label="Generar PDF" icon="pi pi-file-pdf" (click)="generarPDF()" class="pdf-btn"></button>
+      </div>
+    </section>
+
+    <p-toast></p-toast>
+  </main>
+</div>

@@ -1,0 +1,154 @@
+<div class="layout-wrapper dark-theme" [ngClass]="containerClass">
+  <app-topbar></app-topbar>
+
+  <div class="layout-sidebar">
+    <!-- Menú lateral estilizado -->
+    <nav class="sidebar-nav" style="padding: 1rem;">
+      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Menú</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <a routerLink="/admin/usuarios" routerLinkActive="active"
+           style="display: block; background-color: #e0e7ff; padding: 0.75rem 1rem; border-radius: 10px; text-decoration: none; color: #1e3a8a; font-weight: 500;">
+          👤 Usuarios
+        </a>
+        <a routerLink="/admin/formulario" routerLinkActive="active"
+           style="display: block; background-color: #e0e7ff; padding: 0.75rem 1rem; border-radius: 10px; text-decoration: none; color: #1e3a8a; font-weight: 500;">
+          📋 Formulario
+        </a>
+        <a routerLink="/admin/reporte" routerLinkActive="active"
+           style="display: block; background-color: #e0e7ff; padding: 0.75rem 1rem; border-radius: 10px; text-decoration: none; color: #1e3a8a; font-weight: 500;">
+          📊 Informe
+        </a>
+        <a routerLink="/admin/pedido" routerLinkActive="active"
+           style="display: block; background-color: #e0e7ff; padding: 0.75rem 1rem; border-radius: 10px; text-decoration: none; color: #1e3a8a; font-weight: 500;">
+          📦 Pedido
+        </a>
+        <a routerLink="/admin/lista-cliente" routerLinkActive="active"
+           style="display: block; background-color: #e0e7ff; padding: 0.75rem 1rem; border-radius: 10px; text-decoration: none; color: #1e3a8a; font-weight: 500;">
+          🧾 Lista cliente
+        </a>
+      </div>
+    </nav>
+  </div>  
+
+  <div class="layout-main-container">
+    <div class="layout-main">
+      <router-outlet></router-outlet>
+
+      <div *ngIf="isAdminRoute()" class="admin-welcome-banner" style="margin-bottom: 2rem;">
+        <div class="admin-banner-content" style="text-align: center;">
+          <img
+            src="https://imgix-media.wbdndc.net/asset/collection/c1401/5f63cf75/hero-c.jpg?w=650&h=366&fit=fill&fill=blur&auto=format%2Ccompress&"
+            alt="DtComics"
+            class="admin-logo"
+            style="max-width: 100%; border-radius: 10px;"
+          />
+          <h1 class="admin-heading">Información Confiable <br />Interesante y Útil</h1>
+          <p class="admin-subheading">Bienvenido</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN DE NOTICIAS DESTACADAS -->
+      <section style="padding: 1rem; background-color: #1e293b; border-radius: 10px; margin-bottom: 2rem; color: white;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">📰 Noticias destacadas</h2>
+        <ul style="list-style: disc; padding-left: 1.5rem;">
+          <li><strong>Nuevo arco de One Piece:</strong> Eiichiro Oda revela detalles del próximo capítulo.</li>
+          <li><strong>My Hero Academia:</strong> Capítulo final confirmado para este otoño.</li>
+          <li><strong>Akira Toriyama:</strong> se publica una edición especial de Dragon Ball en homenaje póstumo.</li>
+        </ul>
+      </section>
+
+      <!-- AUTORES DESTACADOS -->
+      <section style="padding: 1rem; background-color: #334155; border-radius: 10px; margin-bottom: 2rem; color: white;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">✍️ Autores populares</h2>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div style="flex: 1 1 200px; background-color: #475569; padding: 1rem; border-radius: 8px;">
+            <strong>Eiichiro Oda</strong><br />
+            Autor de One Piece. Más de 100 volúmenes publicados.
+          </div>
+          <div style="flex: 1 1 200px; background-color: #475569; padding: 1rem; border-radius: 8px;">
+            <strong>Gege Akutami</strong><br />
+            Reconocido por su obra Jujutsu Kaisen.
+          </div>
+          <div style="flex: 1 1 200px; background-color: #475569; padding: 1rem; border-radius: 8px;">
+            <strong>Koyoharu Gotouge</strong><br />
+            Autor de Kimetsu no Yaiba.
+          </div>
+        </div>
+      </section>
+
+      <!-- LANZAMIENTOS RECIENTES -->
+      <section style="padding: 1rem; background-color: #0f172a; border-radius: 10px; margin-bottom: 2rem; color: white;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">📅 Lanzamientos recientes</h2>
+        <ul style="list-style: square; padding-left: 1.5rem;">
+          <li>Chainsaw Man Vol. 14 - Disponible desde julio 2025.</li>
+          <li>Spy x Family Temporada 3 - Estreno el 10 de agosto 2025.</li>
+          <li>Tokyo Revengers edición final - Ya en tiendas.</li>
+        </ul>
+        <button style="margin-top: 1rem; padding: 0.5rem 1rem; background-color: #3b82f6; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Ver más noticias
+        </button>
+      </section>
+
+<!-- SECCIÓN DE NOTICIAS DESTACADAS -->
+<section style="padding: 1rem; background-color: #1e293b; border-radius: 10px; margin-bottom: 2rem; color: white;">
+  <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">📰 Noticias destacadas</h2>
+  
+  <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+    
+    <div style="display: flex; gap: 1rem;">
+      <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/34/b6/34b6ceed591704214024094f994ff88e.jpg" alt="One Piece" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px;">
+      <div>
+        <strong>Nuevo arco de One Piece</strong><br>
+        Eiichiro Oda revela el próximo gran conflicto en el Nuevo Mundo.
+      </div>
+    </div>
+    
+    <div style="display: flex; gap: 1rem;">
+      <img src="https://images-cdn.ubuy.co.in/67cb40a0f013bf40047687b2-my-hero-academia-vol-4.jpg" alt="MHA Final" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px;">
+      <div>
+        <strong>My Hero Academia llega a su final</strong><br>
+        El autor confirma cierre oficial en octubre 2025 con capítulo extra.
+      </div>
+    </div>
+    
+    <div style="display: flex; gap: 1rem;">
+      <img src="https://media.es.wired.com/photos/65ea9d17134c508c62b78591/1:1/w_1929,h_1929,c_limit/Akira%20Toriyama.jpg" alt="Dragon Ball Especial" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px;">
+      <div>
+        <strong>Homenaje a Toriyama</strong><br>
+        Edición especial de Dragon Ball será lanzada en memoria del maestro.
+      </div>
+    </div>
+    
+    <div style="display: flex; gap: 1rem;">
+      <img src="https://images2-megamedia.cdn.mdstrm.com/etcetera/2020/05/18/11224_1_5ec2c55db2d06.jpg?d=500x500" alt="Demon Slayer" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px;">
+      <div>
+        <strong>Kimetsu no Yaiba: película anunciada</strong><br>
+        Ufotable confirma nueva película para el arco final del manga.
+      </div>
+    </div>
+    
+    <div style="display: flex; gap: 1rem;">
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/46/Jujutsu_kaisen.jpg" alt="Jujutsu Kaisen" style="width: 120px; height: 80px; object-fit: cover; border-radius: 8px;">
+      <div>
+        <strong>Jujutsu Kaisen: cambios de animación</strong><br>
+        MAPPA responde a críticas y rediseña escenas clave de la 3ra temporada.
+      </div>
+    </div>
+    
+  </div>
+
+  <button style="margin-top: 2rem; padding: 0.5rem 1rem; background-color: #3b82f6; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Ver más noticias
+  </button>
+</section>
+      <div class="layout-content" style="padding: 1rem;">
+        <router-outlet></router-outlet>
+      </div>  
+    </div>
+    <app-footer></app-footer>
+  </div>
+
+  <app-config></app-config>
+  <div class="layout-mask"></div>
+</div>

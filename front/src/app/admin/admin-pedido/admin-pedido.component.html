@@ -1,0 +1,24 @@
+<div class="contenido-pedidos comic-theme">
+  <h2 class="titulo">📦 Pedidos de la Liga</h2>
+
+  <div class="contenedor-pedidos">
+    <ng-container *ngFor="let pedido of pedidos">
+      <p-card class="card-pedido">
+        <div class="cabecera-card" (click)="toggleExpand(pedido)">
+          <span><strong>🆔 Código de Misión:</strong> {{ pedido.id }}</span>
+          <i class="pi icon-toggle" [ngClass]="pedido.expanded ? 'pi-chevron-up' : 'pi-chevron-down'"></i>
+        </div>
+
+        <div *ngIf="pedido.expanded" class="contenido-card">
+          <p><strong>🏢 Agencia o Cliente:</strong> {{ pedido.empresa }}</p>
+          <p><strong>📮 Zona Postal:</strong> {{ pedido.codigopostal }}</p>
+          <p><strong>🗺️ Provincia:</strong> {{ pedido.provincia }}</p>
+          <p><strong>🏙️ Ciudad:</strong> {{ pedido.ciudad }}</p>
+          <p><strong>🚦 Vía Principal:</strong> {{ pedido.callePrincipal }}</p>
+          <p><strong>🛣️ Vía Alterna:</strong> {{ pedido.calleSecundario }}</p>
+          <p><strong>💥 Reporte de Emergencia:</strong> {{ pedido.detalle }}</p>
+        </div>
+      </p-card>
+    </ng-container>
+  </div>
+</div>
